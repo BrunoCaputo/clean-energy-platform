@@ -186,6 +186,9 @@ psd
 thumb
 sketch
 
+# misc
+.migrations
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json

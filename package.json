@@ -7,11 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "drizzle:generate": "npx drizzle-kit generate",
-    "drizzle:migrate": "npx drizzle-kit migrate",
-    "drizzle:studio": "npx drizzle-kit studio"
+    "drizzle:generate": "drizzle-kit generate",
+    "drizzle:migrate": "drizzle-kit migrate",
+    "drizzle:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@next/env": "^15.0.1",
     "@paralleldrive/cuid2": "^2.2.2",
     "@t3-oss/env-nextjs": "^0.11.1",
     "drizzle-orm": "^0.35.3",
