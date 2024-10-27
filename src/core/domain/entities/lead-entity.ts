@@ -74,3 +74,8 @@ export class LeadEntity {
     return this._createdAt
   }
 }
+
+export type LeadEntityType = Pick<
+  LeadEntity,
+  'id' | 'name' | 'email' | 'phone' | 'cpf' | 'createdAt'
+>

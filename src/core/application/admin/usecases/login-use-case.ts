@@ -5,6 +5,7 @@ export async function adminLoginUseCase(credentials: {
   email: string
   password: string
 }): Promise<AdminEntity> {
+  // TODO: Password encryption
   const { email, password } = credentials
   const repository: AdminRepository = new AdminRepository()
 
