@@ -1,14 +1,12 @@
 import { NextRequest } from 'next/server'
 
-import { AdminRepository } from '@/data/repositories/admin-repository'
+import { adminLoginUseCase } from '@/core/application/usecases/admin-login-use-case'
 
 export async function POST(request: NextRequest) {
   const { email, password } = await request.json()
 
-  const repository = new AdminRepository()
-
   try {
-    const adminUser = await repository.login({ email, password })
+    const adminUser = await adminLoginUseCase({ email, password })
 
     return Response.json(adminUser, { status: 200 })
   } catch (error) {
@@ -18,6 +16,6 @@ export async function POST(request: NextRequest) {
       errorMessage = error.message
     }
 
-    return Response.json({ error: errorMessage }, { status })
+    return Response.json({ error: errorMessage, status }, { status })
   }
 }

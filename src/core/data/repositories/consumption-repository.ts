@@ -1,5 +1,5 @@
 import { Supply } from '@/@types/consumption'
-import { ConsumptionEntity } from '@/domain/entities/consumption-entity'
+import { ConsumptionEntity } from '@/core/domain/entities/consumption-entity'
 
 import { db } from '../db'
 import { consumption } from '../db/schema'

@@ -1,6 +1,6 @@
 import { eq } from 'drizzle-orm'
 
-import { AdminEntity } from '@/domain/entities/admin-entity'
+import { AdminEntity } from '@/core/domain/entities/admin-entity'
 
 import { db } from '../db'
 import { admin } from '../db/schema'

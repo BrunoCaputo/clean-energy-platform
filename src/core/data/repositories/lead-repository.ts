@@ -1,4 +1,4 @@
-import { LeadEntity } from '@/domain/entities/lead-entity'
+import { LeadEntity } from '@/core/domain/entities/lead-entity'
 
 import { db } from '../db'
 import { lead } from '../db/schema'
