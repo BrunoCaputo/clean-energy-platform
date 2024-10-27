@@ -12,10 +12,12 @@ export async function POST(request: NextRequest) {
 
     return Response.json(adminUser, { status: 200 })
   } catch (error) {
+    let errorMessage = 'Failed to login'
+    const status = 401
     if (error instanceof Error) {
-      return Response.json({ message: error.message }, { status: 401 })
+      errorMessage = error.message
     }
 
-    return Response.json({ error: 'Failed to login' }, { status: 401 })
+    return Response.json({ error: errorMessage }, { status })
   }
 }
