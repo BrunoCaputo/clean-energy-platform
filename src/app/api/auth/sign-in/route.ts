@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server'
 
-import { adminLoginUseCase } from '@/core/application/usecases/admin-login-use-case'
+import { adminLoginUseCase } from '@/core/application/admin/usecases/login-use-case'
 
 export async function POST(request: NextRequest) {
   const { email, password } = await request.json()
