@@ -89,6 +89,15 @@ export class LeadRepository implements ILeadRepository {
   async deleteLead(leadId: string): Promise<void> {
     await db.delete(consumption).where(eq(consumption.leadId, leadId))
 
-    await db.delete(lead).where(eq(lead.id, leadId)).returning()
+    const [deletedLead] = await db
+      .delete(lead)
+      .where(eq(lead.id, leadId))
+      .returning()
+
+    if (!deletedLead) {
+      throw new Error(`Lead with id ${leadId} not found`, {
+        cause: 404 /* status code */,
+      })
+    }
   }
 }

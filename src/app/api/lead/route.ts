@@ -45,9 +45,10 @@ export async function DELETE(request: NextRequest) {
     return Response.json({ deleted: true, status: 200 }, { status: 200 })
   } catch (error) {
     let errorMessage = `Failed to delete lead of ID ${leadId}`
-    const status = 400
+    let status = 400
     if (error instanceof Error) {
       errorMessage = error.message
+      status = (error.cause as number) ?? 400
     }
 
     return Response.json({ error: errorMessage, status }, { status })
