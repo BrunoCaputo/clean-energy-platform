@@ -1,22 +1,20 @@
 import {
   ILeadConsumption,
   ILeadRepository,
-  LeadRepository,
 } from '@/core/data/repositories/lead-repository'
 import { LeadEntityType } from '@/core/domain/entities/lead-entity'
 
 /**
  * Business rules for fetching the leads
  *
+ * @param {ILeadRepository} repository The repository instance
  * @returns The leads and their consumptions
  */
-export async function fetchLeadsUseCase(): Promise<
+export async function fetchLeadsUseCase(repository: ILeadRepository): Promise<
   (Omit<LeadEntityType, 'consumption'> & {
     consumption: ILeadConsumption[]
   })[]
 > {
-  const repository: ILeadRepository = new LeadRepository()
-
   try {
     const leads = await repository.fetchLeads()
 

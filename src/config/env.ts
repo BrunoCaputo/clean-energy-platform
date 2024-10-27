@@ -5,6 +5,9 @@ import { z } from 'zod'
 const projectDir = process.cwd()
 loadEnvConfig(projectDir)
 
+/**
+ * Create the environment splitting into client and server variables
+ */
 export const env = createEnv({
   server: {
     DATABASE_URL: z.string().url(),

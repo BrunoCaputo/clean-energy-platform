@@ -2,6 +2,12 @@ import { NextRequest } from 'next/server'
 
 import { adminLoginUseCase } from '@/core/application/admin/usecases/login-use-case'
 
+/**
+ * Sign in a system administrator
+ *
+ * @param {NextRequest} request The request object
+ * @returns The admin user data without the password
+ */
 export async function POST(request: NextRequest) {
   const { email, password } = await request.json()
 

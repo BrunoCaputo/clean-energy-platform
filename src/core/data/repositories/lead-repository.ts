@@ -24,6 +24,8 @@ export interface ILeadRepository {
       consumption: ILeadConsumption
     })[]
   >
+
+  deleteLead: (leadId: string) => Promise<void>
 }
 
 export class LeadRepository implements ILeadRepository {
@@ -82,5 +84,11 @@ export class LeadRepository implements ILeadRepository {
       .innerJoin(consumptionByLead, eq(lead.id, consumptionByLead.leadId))
 
     return leads
+  }
+
+  async deleteLead(leadId: string): Promise<void> {
+    await db.delete(consumption).where(eq(consumption.leadId, leadId))
+
+    await db.delete(lead).where(eq(lead.id, leadId)).returning()
   }
 }
