@@ -1,15 +1,10 @@
 import { desc, eq } from 'drizzle-orm'
 
+import { ILeadConsumption } from '@/@types/lead'
 import { LeadEntity, LeadEntityType } from '@/core/domain/entities/lead-entity'
 
 import { db } from '../db'
 import { consumption, lead } from '../db/schema'
-
-export interface ILeadConsumption {
-  monthCost: number
-  city: string
-  state: string
-}
 
 export interface ILeadRepository {
   collectLeadData: (leadData: {
