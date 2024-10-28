@@ -16,6 +16,7 @@ export default async function SignInPage() {
         height={50}
         width={170}
         className="mb-5 h-auto w-auto"
+        loading="lazy"
       />
 
       <SignInForm />

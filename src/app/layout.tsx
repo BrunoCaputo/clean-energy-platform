@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="bg-zinc-50 text-zinc-800 antialiased">
+      <body className="box-border bg-zinc-50 text-zinc-800 antialiased">
         {children}
         <Toaster richColors />
       </body>

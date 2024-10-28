@@ -11,6 +11,7 @@ export default function AuthLayout({ children }: PropsWithChildren) {
           quality={100}
           width={600}
           height={600}
+          loading="lazy"
         />
       </aside>
 
