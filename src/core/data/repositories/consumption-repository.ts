@@ -1,6 +1,6 @@
 import { eq } from 'drizzle-orm'
 
-import { Supply } from '@/@types/consumption'
+import { ConsumptionData } from '@/@types/consumption'
 import { ConsumptionEntity } from '@/core/domain/entities/consumption-entity'
 
 import { db } from '../db'
@@ -8,12 +8,7 @@ import { consumption } from '../db/schema'
 
 export interface IConsumptionRepository {
   collectConsumptionData: (
-    consumptionData: {
-      monthCost: number
-      city: string
-      state: string
-      supply: Supply
-    },
+    consumptionData: ConsumptionData,
     leadId: string,
   ) => Promise<{ consumption: ConsumptionEntity }>
 
@@ -24,12 +19,7 @@ export interface IConsumptionRepository {
 
 export class ConsumptionRepository implements IConsumptionRepository {
   async collectConsumptionData(
-    consumptionData: {
-      monthCost: number
-      city: string
-      state: string
-      supply: Supply
-    },
+    consumptionData: ConsumptionData,
     leadId: string,
   ): Promise<{ consumption: ConsumptionEntity }> {
     const { monthCost, city, state, supply } = consumptionData
