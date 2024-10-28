@@ -9,8 +9,14 @@ export const metadata: Metadata = {
 
 export default async function SignInPage() {
   return (
-    <div className="flex h-full items-center justify-center">
-      <Image src="/logo.svg" alt="" height={50} width={170} />
+    <div className="flex h-full flex-col items-center justify-center">
+      <Image
+        src="/logo.svg"
+        alt=""
+        height={50}
+        width={170}
+        className="mb-5 h-auto w-auto"
+      />
 
       <SignInForm />
     </div>
