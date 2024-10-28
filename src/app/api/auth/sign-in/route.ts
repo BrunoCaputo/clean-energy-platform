@@ -1,6 +1,12 @@
 import { NextRequest } from 'next/server'
 
 import { adminLoginUseCase } from '@/core/application/admin/usecases/login-use-case'
+import {
+  AdminRepository,
+  IAdminRepository,
+} from '@/core/data/repositories/admin-repository'
+
+const adminRepository: IAdminRepository = new AdminRepository()
 
 /**
  * Sign in a system administrator
@@ -12,7 +18,10 @@ export async function POST(request: NextRequest) {
   const { email, password } = await request.json()
 
   try {
-    const adminUser = await adminLoginUseCase({ email, password })
+    const adminUser = await adminLoginUseCase(
+      { email, password },
+      adminRepository,
+    )
 
     return Response.json(adminUser, { status: 200 })
   } catch (error) {

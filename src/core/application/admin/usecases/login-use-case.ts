@@ -1,19 +1,20 @@
 import { Credentials } from '@/@types/admin'
-import { AdminRepository } from '@/core/data/repositories/admin-repository'
+import { IAdminRepository } from '@/core/data/repositories/admin-repository'
 import { AdminEntity } from '@/core/domain/entities/admin-entity'
 
 /**
  * Business rules for login the system administrator
  *
  * @param {Credentials} credentials the email and password
+ * @param {IAdminRepository} repository The repository instance
  * @returns The admin data without the password
  */
 export async function adminLoginUseCase(
   credentials: Credentials,
+  repository: IAdminRepository,
 ): Promise<AdminEntity> {
   // TODO: Password encryption
   const { email, password } = credentials
-  const repository: AdminRepository = new AdminRepository()
 
   const { admin } = await repository.login({ email, password })
 

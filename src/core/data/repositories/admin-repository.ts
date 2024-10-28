@@ -5,7 +5,7 @@ import { AdminEntity } from '@/core/domain/entities/admin-entity'
 import { db } from '../db'
 import { admin } from '../db/schema'
 
-interface IAdminRepository {
+export interface IAdminRepository {
   login: (credentials: {
     email: string
     password: string
