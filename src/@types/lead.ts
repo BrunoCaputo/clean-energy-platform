@@ -8,6 +8,13 @@ export interface ILeadConsumption {
   state: string
 }
 
+export interface LeadData {
+  name: string
+  email: string
+  phone: string
+  cpf: string
+}
+
 export type Lead = Omit<LeadEntityType, 'consumption'> & {
   consumption: ILeadConsumption[]
 }

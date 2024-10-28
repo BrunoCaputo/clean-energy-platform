@@ -1,18 +1,13 @@
 import { desc, eq } from 'drizzle-orm'
 
-import { ILeadConsumption } from '@/@types/lead'
+import { ILeadConsumption, LeadData } from '@/@types/lead'
 import { LeadEntity, LeadEntityType } from '@/core/domain/entities/lead-entity'
 
 import { db } from '../db'
 import { consumption, lead } from '../db/schema'
 
 export interface ILeadRepository {
-  collectLeadData: (leadData: {
-    name: string
-    email: string
-    phone: string
-    cpf: string
-  }) => Promise<{ lead: LeadEntity }>
+  collectLeadData: (leadData: LeadData) => Promise<{ lead: LeadEntity }>
 
   fetchLeads: () => Promise<
     (LeadEntityType & {
