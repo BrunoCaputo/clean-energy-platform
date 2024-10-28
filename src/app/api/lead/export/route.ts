@@ -7,8 +7,17 @@ import {
   LeadRepository,
 } from '@/core/data/repositories/lead-repository'
 
+/**
+ * Lead repository that contains the database access
+ */
 const leadRepository: ILeadRepository = new LeadRepository()
 
+/**
+ * Export all the leads data to a csv or xlsx file
+ *
+ * @param {NextRequest} request Request object
+ * @returns The exported file
+ */
 export async function GET(request: NextRequest) {
   const fileType = request.nextUrl.searchParams.get('fileType')
   let headers: HeadersInit | undefined

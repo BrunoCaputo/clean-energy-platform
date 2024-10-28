@@ -1,3 +1,6 @@
+/**
+ * Admin model
+ */
 export class AdminEntity {
   private _id: string
   private _name: string

@@ -5,6 +5,9 @@ import { AdminEntity } from '@/core/domain/entities/admin-entity'
 import { db } from '../db'
 import { admin } from '../db/schema'
 
+/**
+ * Admin repository interface
+ */
 export interface IAdminRepository {
   login: (credentials: {
     email: string
@@ -12,6 +15,9 @@ export interface IAdminRepository {
   }) => Promise<{ admin: AdminEntity }>
 }
 
+/**
+ * Admin repository implementation
+ */
 export class AdminRepository implements IAdminRepository {
   async login(credentials: {
     email: string

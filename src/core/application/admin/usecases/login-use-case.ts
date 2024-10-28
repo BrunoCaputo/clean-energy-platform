@@ -5,8 +5,8 @@ import { AdminEntity } from '@/core/domain/entities/admin-entity'
 /**
  * Business rules for login the system administrator
  *
- * @param {Credentials} credentials the email and password
- * @param {IAdminRepository} repository The repository instance
+ * @param {Credentials} credentials Admin email and password
+ * @param {IAdminRepository} repository Repository instance
  * @returns The admin data without the password
  */
 export async function adminLoginUseCase(

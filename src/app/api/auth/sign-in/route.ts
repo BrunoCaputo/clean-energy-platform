@@ -6,12 +6,15 @@ import {
   IAdminRepository,
 } from '@/core/data/repositories/admin-repository'
 
+/**
+ * Admin repository that contains the database access
+ */
 const adminRepository: IAdminRepository = new AdminRepository()
 
 /**
  * Sign in a system administrator
  *
- * @param {NextRequest} request The request object
+ * @param {NextRequest} request Request object
  * @returns The admin user data without the password
  */
 export async function POST(request: NextRequest) {

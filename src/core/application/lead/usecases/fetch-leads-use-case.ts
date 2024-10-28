@@ -5,7 +5,7 @@ import { LeadEntityType } from '@/core/domain/entities/lead-entity'
 /**
  * Business rules for fetching the leads
  *
- * @param {ILeadRepository} repository The repository instance
+ * @param {ILeadRepository} repository Repository instance
  * @returns The leads and their consumptions
  */
 export async function fetchLeadsUseCase(

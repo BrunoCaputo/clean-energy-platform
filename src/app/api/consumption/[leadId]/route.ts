@@ -8,9 +8,18 @@ import {
   IConsumptionRepository,
 } from '@/core/data/repositories/consumption-repository'
 
+/**
+ * Consumption repository that contains the database access
+ */
 const consumptionRepository: IConsumptionRepository =
   new ConsumptionRepository()
 
+/**
+ * Get all consumption that belongs to a specific lead
+ *
+ * @param {NextRequest} request Request object
+ * @returns The consumptions from the lead
+ */
 export async function GET(request: NextRequest) {
   const { pathname } = request.nextUrl
 
@@ -34,6 +43,12 @@ export async function GET(request: NextRequest) {
   }
 }
 
+/**
+ * Create a new consumption
+ *
+ * @param {NextRequest} request Request object
+ * @returns The created consumption data
+ */
 export async function POST(request: NextRequest) {
   const { pathname } = request.nextUrl
 

@@ -9,12 +9,15 @@ import {
   LeadRepository,
 } from '@/core/data/repositories/lead-repository'
 
+/**
+ * Lead repository that contains the database access
+ */
 const leadRepository: ILeadRepository = new LeadRepository()
 
 /**
  * Fetch all leads
  *
- * @returns The response containing all the leads
+ * @returns All the leads
  */
 export async function GET() {
   try {
@@ -35,8 +38,8 @@ export async function GET() {
 /**
  * Delete a single lead
  *
- * @param {NextRequest} request The request object
- * @returns The response containing if the lead was deleted
+ * @param {NextRequest} request Request object
+ * @returns If the lead was deleted
  */
 export async function DELETE(request: NextRequest) {
   const { leadId } = await request.json()
@@ -57,6 +60,12 @@ export async function DELETE(request: NextRequest) {
   }
 }
 
+/**
+ * Create a new lead
+ *
+ * @param {NextRequest} request Request object
+ * @returns The created lead data
+ */
 export async function POST(request: NextRequest) {
   try {
     const { name, email, phone, cpf } = (await request.json()) as LeadData

@@ -1,5 +1,8 @@
 import { Supply } from '@/@types/consumption'
 
+/**
+ * Consumption model
+ */
 export class ConsumptionEntity {
   private _id: string
   private _monthCost: number

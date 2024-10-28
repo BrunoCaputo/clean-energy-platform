@@ -1,3 +1,6 @@
+/**
+ * Lead model
+ */
 export class LeadEntity {
   private _id: string
   private _name: string
@@ -75,6 +78,9 @@ export class LeadEntity {
   }
 }
 
+/**
+ * Lead model as type
+ */
 export type LeadEntityType = Pick<
   LeadEntity,
   'id' | 'name' | 'email' | 'phone' | 'cpf' | 'createdAt'

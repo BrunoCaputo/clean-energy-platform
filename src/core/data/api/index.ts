@@ -3,7 +3,7 @@ import { env } from '@/config/env'
 /**
  * Function to do HTTP requests
  *
- * @param {string} path The endpoint path
+ * @param {string} path Endpoint path
  * @param {RequestInit?} init Optional data for fetch extra configuration
  * @returns The fetch response
  */

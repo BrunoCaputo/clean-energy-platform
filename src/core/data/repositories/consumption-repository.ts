@@ -6,6 +6,9 @@ import { ConsumptionEntity } from '@/core/domain/entities/consumption-entity'
 import { db } from '../db'
 import { consumption } from '../db/schema'
 
+/**
+ * Consumption repository interface
+ */
 export interface IConsumptionRepository {
   collectConsumptionData: (
     consumptionData: ConsumptionData,
@@ -17,6 +20,9 @@ export interface IConsumptionRepository {
   ): Promise<{ consumptions: ConsumptionEntity[] }>
 }
 
+/**
+ * Consumption repository implementation
+ */
 export class ConsumptionRepository implements IConsumptionRepository {
   async collectConsumptionData(
     consumptionData: ConsumptionData,

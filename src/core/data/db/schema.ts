@@ -2,6 +2,9 @@ import { pgTable, real, text, timestamp, varchar } from 'drizzle-orm/pg-core'
 
 import { createId } from '@/utils/create-id'
 
+/**
+ * Consumption postgres table
+ */
 export const consumption = pgTable('consumption', {
   id: text('id')
     .primaryKey()
@@ -20,6 +23,9 @@ export const consumption = pgTable('consumption', {
     .notNull(),
 })
 
+/**
+ * Lead postgres table
+ */
 export const lead = pgTable('lead', {
   id: text('id')
     .primaryKey()
@@ -33,6 +39,9 @@ export const lead = pgTable('lead', {
     .defaultNow(),
 })
 
+/**
+ * Admin postgres table
+ */
 export const admin = pgTable('admin', {
   id: text('id')
     .primaryKey()
