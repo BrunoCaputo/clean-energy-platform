@@ -1,3 +1,5 @@
+import { Metadata } from 'next'
+
 import { Lead } from '@/@types/lead'
 import { api } from '@/core/data/api'
 import {
@@ -9,6 +11,10 @@ import {
 } from '@/presentation/components/ui/table'
 
 import { LeadTableRow } from './components/table-row'
+
+export const metadata: Metadata = {
+  title: 'Leads',
+}
 
 async function getLeads(): Promise<Lead[]> {
   const response = await api('/lead', {
@@ -25,8 +31,6 @@ async function getLeads(): Promise<Lead[]> {
 export default async function HomePage() {
   const leads: Lead[] = await getLeads()
 
-  console.log(leads)
-
   return (
     <div className="flex flex-col gap-4">
       <div className="rounded-md border">
@@ -38,8 +42,8 @@ export default async function HomePage() {
               <TableHead>Email</TableHead>
               <TableHead className="w-[164px]">Phone</TableHead>
               <TableHead className="w-[150px]">CPF</TableHead>
-              <TableHead>Created at</TableHead>
-              <TableHead></TableHead>
+              <TableHead className="w-[220px]">Created at</TableHead>
+              <TableHead className="w-[160px]">Consumptions</TableHead>
             </TableRow>
           </TableHeader>
 

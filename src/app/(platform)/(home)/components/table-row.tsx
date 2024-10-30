@@ -2,6 +2,7 @@ import { formatDate } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 
 import { Lead } from '@/@types/lead'
+import { Button } from '@/presentation/components/ui/button'
 import { TableCell, TableRow } from '@/presentation/components/ui/table'
 import { formatCpf, formatPhone } from '@/utils/formatters'
 
@@ -22,7 +23,11 @@ export function LeadTableRow({ lead }: LeadTableRowProps) {
       <TableCell>
         {formatDate(lead.createdAt, 'dd/MM/yyyy - HH:mm:ss', { locale: ptBR })}
       </TableCell>
-      <TableCell></TableCell>
+      <TableCell>
+        <Button variant="outline" size="sm">
+          View
+        </Button>
+      </TableCell>
     </TableRow>
   )
 }
