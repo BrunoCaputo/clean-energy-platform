@@ -44,6 +44,7 @@ export default async function HomePage() {
               <TableHead className="w-[150px]">CPF</TableHead>
               <TableHead className="w-[220px]">Created at</TableHead>
               <TableHead className="w-[160px]">Consumptions</TableHead>
+              <TableHead className="w-[100px]"></TableHead>
             </TableRow>
           </TableHeader>
 
