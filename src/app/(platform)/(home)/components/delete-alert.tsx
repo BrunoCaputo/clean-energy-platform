@@ -33,6 +33,7 @@ export function DeleteAlert({ leadId }: DeleteAlertProps) {
       title="Are you sure you want to delte this lead?"
       description="If you delete this lead, you will be able to access it again."
       onConfirm={handleDeleteLead}
+      confirmButtonText="Delete"
       type="delete"
     />
   )

@@ -1,7 +1,13 @@
+import { Download, UserRoundPlus } from 'lucide-react'
 import { Metadata } from 'next'
 
 import { Lead } from '@/@types/lead'
 import { api } from '@/core/data/api'
+import { Button } from '@/presentation/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+} from '@/presentation/components/ui/dropdown-menu'
 import {
   Table,
   TableBody,
@@ -10,6 +16,7 @@ import {
   TableRow,
 } from '@/presentation/components/ui/table'
 
+import { ExportMenu } from './components/export-menu'
 import { LeadTableRow } from './components/table-row'
 
 export const metadata: Metadata = {
@@ -33,6 +40,23 @@ export default async function HomePage() {
 
   return (
     <div className="flex flex-col gap-4">
+      <div className="flex items-center gap-4 self-end">
+        <Button variant="outline" className="flex items-center gap-3">
+          <UserRoundPlus className="h-4 w-4" />
+          Create Lead
+        </Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" className="flex items-center gap-3">
+              <Download className="h-4 w-4" />
+              Export leads
+            </Button>
+          </DropdownMenuTrigger>
+
+          <ExportMenu />
+        </DropdownMenu>
+      </div>
+
       <div className="rounded-md border">
         <Table>
           <TableHeader>
