@@ -18,6 +18,8 @@ import {
   TableRow,
 } from '@/presentation/components/ui/table'
 
+import { ConsumptionEconomyButton } from './consumption-economy-button'
+
 interface ConsumptionDialogProps {
   leadId: string
 }
@@ -57,35 +59,54 @@ export async function ConsumptionDialog({ leadId }: ConsumptionDialogProps) {
             <TableHead>State</TableHead>
             <TableHead>Supply</TableHead>
             <TableHead>Created At</TableHead>
+            <TableHead></TableHead>
           </TableRow>
         </TableHeader>
 
         <TableBody>
-          {consumptions.map((consumption) => {
-            return (
-              <TableRow key={consumption.id}>
-                <TableCell className="font-mono font-medium">
-                  {consumption.id}
-                </TableCell>
-                <TableCell>
-                  {consumption.monthCost.toLocaleString('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL',
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  })}
-                </TableCell>
-                <TableCell>{consumption.city}</TableCell>
-                <TableCell>{consumption.state}</TableCell>
-                <TableCell>{consumption.supply}</TableCell>
-                <TableCell>
-                  {formatDate(consumption.createdAt, 'dd/MM/yyyy - HH:mm:ss', {
-                    locale: ptBR,
-                  })}
-                </TableCell>
-              </TableRow>
-            )
-          })}
+          {consumptions.length > 0 ? (
+            consumptions.map((consumption) => {
+              return (
+                <TableRow key={consumption.id}>
+                  <TableCell className="font-mono font-medium">
+                    {consumption.id}
+                  </TableCell>
+                  <TableCell>
+                    {consumption.monthCost.toLocaleString('pt-BR', {
+                      style: 'currency',
+                      currency: 'BRL',
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })}
+                  </TableCell>
+                  <TableCell>{consumption.city}</TableCell>
+                  <TableCell>{consumption.state}</TableCell>
+                  <TableCell>{consumption.supply}</TableCell>
+                  <TableCell>
+                    {formatDate(
+                      consumption.createdAt,
+                      'dd/MM/yyyy - HH:mm:ss',
+                      {
+                        locale: ptBR,
+                      },
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    <ConsumptionEconomyButton consumptionId={consumption.id} />
+                  </TableCell>
+                </TableRow>
+              )
+            })
+          ) : (
+            <TableRow>
+              <TableCell
+                colSpan={7}
+                className="text-center text-base font-medium"
+              >
+                No consumptions found for this lead.
+              </TableCell>
+            </TableRow>
+          )}
         </TableBody>
       </Table>
     </DialogContent>
