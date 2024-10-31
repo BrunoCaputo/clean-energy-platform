@@ -34,9 +34,7 @@ export const metadata: Metadata = {
 
 async function getLeads(): Promise<LeadEntity[]> {
   const response = await api('/lead', {
-    next: {
-      revalidate: 60 * 60,
-    },
+    cache: 'no-store',
   })
 
   const { leads } = await response.json()

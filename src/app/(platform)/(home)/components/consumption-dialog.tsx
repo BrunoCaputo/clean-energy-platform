@@ -1,13 +1,17 @@
 import { DialogTitle } from '@radix-ui/react-dialog'
 import { formatDate } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
+import { Plus } from 'lucide-react'
 
 import { api } from '@/core/data/api'
 import { ConsumptionEntity } from '@/core/domain/entities/consumption-entity'
+import { Button } from '@/presentation/components/ui/button'
 import {
+  Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
+  DialogTrigger,
 } from '@/presentation/components/ui/dialog'
 import {
   Table,
@@ -19,6 +23,7 @@ import {
 } from '@/presentation/components/ui/table'
 
 import { ConsumptionEconomyButton } from './consumption-economy-button'
+import { CreateConsumptionForm } from './create-consumption-form'
 
 interface ConsumptionDialogProps {
   leadId: string
@@ -28,9 +33,7 @@ async function getConsumptionsByLeadId(
   leadId: string,
 ): Promise<ConsumptionEntity[]> {
   const response = await api(`/consumption/${leadId}`, {
-    next: {
-      revalidate: 60 * 60,
-    },
+    cache: 'no-store',
   })
 
   const { consumptions } = await response.json()
@@ -42,9 +45,34 @@ export async function ConsumptionDialog({ leadId }: ConsumptionDialogProps) {
   const consumptions = await getConsumptionsByLeadId(leadId)
 
   return (
-    <DialogContent className="max-w-3xl">
+    <DialogContent className="max-w-4xl">
       <DialogHeader>
-        <DialogTitle>Consumptions from: {leadId}</DialogTitle>
+        <DialogTitle className="flex items-center justify-between">
+          Consumptions from: {leadId}
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                className="mr-4 flex items-center gap-2"
+                variant="outline"
+                size="sm"
+              >
+                <Plus className="h-3 w-3" />
+                New Consumption
+              </Button>
+            </DialogTrigger>
+
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Create consumption</DialogTitle>
+                <DialogDescription className="sr-only">
+                  Consumption creation
+                </DialogDescription>
+              </DialogHeader>
+
+              <CreateConsumptionForm leadId={leadId} />
+            </DialogContent>
+          </Dialog>
+        </DialogTitle>
         <DialogDescription className="sr-only">
           Lead consumptions
         </DialogDescription>

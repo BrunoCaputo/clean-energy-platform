@@ -45,9 +45,7 @@ export function CreateLeadForm() {
 
   async function handleLeadCreation(data: LeadType) {
     try {
-      const { lead } = await createLead(data)
-
-      console.log(lead)
+      await createLead(data)
     } catch (err) {
       let errorMessage = 'Cannot create lead'
 
