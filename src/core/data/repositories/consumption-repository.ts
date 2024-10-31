@@ -18,6 +18,10 @@ export interface IConsumptionRepository {
   getConsumptionsByLeadId(
     leadId: string,
   ): Promise<{ consumptions: ConsumptionEntity[] }>
+
+  getConsumptionById(
+    consumptionId: string,
+  ): Promise<{ consumption: ConsumptionEntity }>
 }
 
 /**
@@ -59,5 +63,16 @@ export class ConsumptionRepository implements IConsumptionRepository {
         (consumptionData) => new ConsumptionEntity(consumptionData),
       ),
     }
+  }
+
+  async getConsumptionById(
+    consumptionId: string,
+  ): Promise<{ consumption: ConsumptionEntity }> {
+    const [consumptionData] = await db
+      .select()
+      .from(consumption)
+      .where(eq(consumption.id, consumptionId))
+
+    return { consumption: new ConsumptionEntity(consumptionData) }
   }
 }
