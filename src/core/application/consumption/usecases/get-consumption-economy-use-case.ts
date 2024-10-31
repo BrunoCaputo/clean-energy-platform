@@ -31,7 +31,7 @@ export async function getConsumptionEconomy(
       calculateEconomy(monthCost, 25, year),
     )
 
-    return { y1, y3, y5 }
+    return { originalMonthCost: monthCost, y1, y3, y5 }
   } catch (error) {
     console.error(error)
     throw error

@@ -21,6 +21,7 @@ export interface EconomyMetadata {
 }
 
 export interface ConsumptionEconomy {
+  originalMonthCost: number
   y1: EconomyMetadata
   y3: EconomyMetadata
   y5: EconomyMetadata
