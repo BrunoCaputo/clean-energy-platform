@@ -5,6 +5,14 @@ import { Lead } from '@/@types/lead'
 import { api } from '@/core/data/api'
 import { Button } from '@/presentation/components/ui/button'
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/presentation/components/ui/dialog'
+import {
   DropdownMenu,
   DropdownMenuTrigger,
 } from '@/presentation/components/ui/dropdown-menu'
@@ -16,6 +24,7 @@ import {
   TableRow,
 } from '@/presentation/components/ui/table'
 
+import { CreateLeadForm } from './components/create-lead-form'
 import { ExportMenu } from './components/export-menu'
 import { LeadTableRow } from './components/table-row'
 
@@ -41,10 +50,26 @@ export default async function HomePage() {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-4 self-end">
-        <Button variant="outline" className="flex items-center gap-3">
-          <UserRoundPlus className="h-4 w-4" />
-          Create Lead
-        </Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button variant="outline" className="flex items-center gap-3">
+              <UserRoundPlus className="h-4 w-4" />
+              Create Lead
+            </Button>
+          </DialogTrigger>
+
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Create lead</DialogTitle>
+              <DialogDescription className="sr-only">
+                Lead creation
+              </DialogDescription>
+            </DialogHeader>
+
+            <CreateLeadForm />
+          </DialogContent>
+        </Dialog>
+
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="flex items-center gap-3">
