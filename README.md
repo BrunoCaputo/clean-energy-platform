@@ -44,3 +44,24 @@ pnpm run dev
 3. **Rotas da API:** Para documentar as rotas existentes, há um arquivo exportado do [Insomnia](https://insomnia.rest/) contendo a [documentação das rotas](./docs/Insomnia_requests.json) da aplicação.
 
 ## UI
+
+A Interface de usuário foi desenvolvida com o mesmo _framework_ Next.js utilizado para a API.
+
+1. **Executando a aplicação:** Para executar a aplicação, o [primeiro passo](#api) para iniciar a API se repete.
+
+2. **Acessando a interface:** Com a aplicação sendo executada, acesse `http://localhost:3000` no navegador de sua preferência.
+
+3. **Login:** Para acessar, um usuário admin deve estar logado na aplicação. Para isso, existe uma seed para o banco de dados para poder iniciar com administradores fictícios:
+
+```bash
+pnpm run seed
+```
+
+Com isso, 2 usuários admin padrão serão criados
+
+| email            | Senha    |
+| ---------------- | -------- |
+| bruno@email.com  | Test@123 |
+| samuel@email.com | Test@456 |
+
+1. **Dentro da plataforma:** A página inicial é onde estão listados os leads. Aqui é possível criar e deletar um lead, visualizar seus consumos e exportá-los para um arquivo `CSV` ou `XLSX`.
