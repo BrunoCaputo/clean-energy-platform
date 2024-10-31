@@ -1,5 +1,3 @@
-import { LeadEntityType } from '@/core/domain/entities/lead-entity'
-
 /**
  * Export file type
  */
@@ -22,11 +20,4 @@ export interface LeadData {
   email: string
   phone: string
   cpf: string
-}
-
-/**
- * Modified lead data to contain the assigned consumption data
- */
-export type Lead = Omit<LeadEntityType, 'consumption'> & {
-  consumption: ILeadConsumption[]
 }

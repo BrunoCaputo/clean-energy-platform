@@ -1,8 +1,8 @@
 import { Download, UserRoundPlus } from 'lucide-react'
 import { Metadata } from 'next'
 
-import { Lead } from '@/@types/lead'
 import { api } from '@/core/data/api'
+import { LeadEntity } from '@/core/domain/entities/lead-entity'
 import { Button } from '@/presentation/components/ui/button'
 import {
   Dialog,
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   title: 'Leads',
 }
 
-async function getLeads(): Promise<Lead[]> {
+async function getLeads(): Promise<LeadEntity[]> {
   const response = await api('/lead', {
     next: {
       revalidate: 60 * 60,
@@ -45,7 +45,7 @@ async function getLeads(): Promise<Lead[]> {
 }
 
 export default async function HomePage() {
-  const leads: Lead[] = await getLeads()
+  const leads: LeadEntity[] = await getLeads()
 
   return (
     <div className="flex flex-col gap-4">
