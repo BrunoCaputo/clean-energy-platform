@@ -35,7 +35,7 @@ export default async function ConsumptionEconomyPage({
         Current month cost: {originalMonthCost}
       </p>
 
-      <div className="flex items-center gap-4">
+      <div className="flex flex-wrap items-center gap-4">
         <EconomyCard metadata={y1} />
         <EconomyCard metadata={y3} />
         <EconomyCard metadata={y5} />
