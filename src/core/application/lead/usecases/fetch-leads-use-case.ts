@@ -1,4 +1,3 @@
-import { ILeadConsumption, Lead } from '@/@types/lead'
 import { ILeadRepository } from '@/core/data/repositories/lead-repository'
 import { LeadEntityType } from '@/core/domain/entities/lead-entity'
 
@@ -6,35 +5,15 @@ import { LeadEntityType } from '@/core/domain/entities/lead-entity'
  * Business rules for fetching the leads
  *
  * @param {ILeadRepository} repository Repository instance
- * @returns The leads and their consumptions
+ * @returns The leads data
  */
 export async function fetchLeadsUseCase(
   repository: ILeadRepository,
-): Promise<Lead[]> {
+): Promise<LeadEntityType[]> {
   try {
     const leads = await repository.fetchLeads()
 
-    // Merge all consumptions that belong to the same lead
-    const mergedLeads = Object.values(
-      leads.reduce(
-        (acc, lead) => {
-          if (!acc[lead.id]) {
-            acc[lead.id] = { ...lead, consumption: [] }
-          }
-
-          acc[lead.id].consumption.push(lead.consumption)
-          return acc
-        },
-        {} as Record<
-          string,
-          Omit<LeadEntityType, 'consumption'> & {
-            consumption: ILeadConsumption[]
-          }
-        >,
-      ),
-    )
-
-    return mergedLeads
+    return leads
   } catch (error) {
     console.error(error)
     throw error

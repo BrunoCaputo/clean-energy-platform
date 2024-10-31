@@ -12,3 +12,17 @@ export interface ConsumptionData {
   state: string
   supply: Supply
 }
+
+export interface EconomyMetadata {
+  years: number
+  totalOriginal: number
+  totalWithDiscount: number
+  totalSavings: number
+}
+
+export interface ConsumptionEconomy {
+  originalMonthCost: number
+  y1: EconomyMetadata
+  y3: EconomyMetadata
+  y5: EconomyMetadata
+}

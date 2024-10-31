@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2024-10-28T02:50:01.454Z",
+  "__export_date": "2024-10-31T19:47:02.842Z",
   "__export_source": "insomnia.desktop.app:v10.1.1",
   "resources": [
     {
@@ -49,6 +49,30 @@
       "description": "",
       "scope": "collection",
       "_type": "workspace"
+    },
+    {
+      "_id": "req_f744179209124f119296ede5d963cf3d",
+      "parentId": "fld_1a4aa5ea8bca4c24811e9eb148bf5c81",
+      "modified": 1730400218875,
+      "created": 1730400193590,
+      "url": "{{url}}/consumption/gdfsag/economy",
+      "name": "Get consumption economy",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [{ "name": "User-Agent", "value": "insomnia/10.1.1" }],
+      "authentication": {},
+      "metaSortKey": -1730070337248.25,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
     },
     {
       "_id": "req_abe7bfe4902b41308a2701fe6a859f29",
@@ -243,7 +267,7 @@
     {
       "_id": "req_812121c040da4b1db405dd907750eee2",
       "parentId": "fld_6cd47e5caca64e57975489db17c2afe0",
-      "modified": 1730083764711,
+      "modified": 1730144457929,
       "created": 1729994666549,
       "url": "{{url}}/auth/sign-in",
       "name": "Login",
