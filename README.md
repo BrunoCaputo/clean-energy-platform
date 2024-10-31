@@ -64,4 +64,4 @@ Com isso, 2 usuários admin padrão serão criados
 | bruno@email.com  | Test@123 |
 | samuel@email.com | Test@456 |
 
-1. **Dentro da plataforma:** A página inicial é onde estão listados os leads. Aqui é possível criar e deletar um lead, visualizar seus consumos e exportá-los para um arquivo `CSV` ou `XLSX`.
+4. **Dentro da plataforma:** A página inicial é onde estão listados os leads. Aqui é possível criar e deletar um lead, visualizar seus consumos e exportá-los para um arquivo `CSV` ou `XLSX`.
